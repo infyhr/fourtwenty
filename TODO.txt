@@ -1,0 +1,8 @@
+FUTURE. Move some functions from functions.php to functions_420.php
+FUTURE. Construct a shell setup & installation
+1. Do footer.php
+2. Common pages (single.php, content.php, content-*.php, page.php, sidebar.php)
+3. archive.php
+4. comments.php -> use disqus.
+5. Add multilanguage support out of the box (cookie).
+FUTURE. layouts/ directory with BS examples -> shell ^
