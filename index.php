@@ -13,6 +13,7 @@
 
 get_header(); ?>
 
+<!-- index.php -->
 <div class="container">
     <main role="main">
         <?php
@@ -21,6 +22,7 @@ get_header(); ?>
                     the_post(); # Display the post.
                     // Content specific post. This will include content-(something).php if it's suitable to use.
                     get_template_part('content', get_post_format());
+                    // So you don't have to copy/paste post navigation around.
                     fourtwenty_post_navigation();
                 }
             }else {
@@ -31,4 +33,8 @@ get_header(); ?>
     </main>
 </div>
 
-<?php get_sidebar(); get_footer(); ?>
+<?php
+// If sidebar.php exists, load it
+if(file_exists(get_template_directory() . '/sidebar.php')) { get_sidebar(); }
+get_footer();
+?>
