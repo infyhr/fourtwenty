@@ -50,7 +50,7 @@
                 <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
             </div>
             <!-- have to insert the nav walker here -->
-            <div class="collapse navbar-collapse">
+<!--             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -68,7 +68,19 @@
                         </ul>
                     </li>
                 </ul>
-            </div><!-- .navbar-collapse -->
+            </div> -->
+            <?php
+                wp_nav_menu(array(
+                    'menu'              => 'navigation',
+                    'theme_location'    => 'navigation',
+                    'depth'             => 2, // Change this to suite your needs.
+                    'container'         => 'div',
+                    'container_class'   => 'collapse navbar-collapse navbar-ex1-collapse',
+                    'menu_class'        => 'nav navbar-nav',
+                    'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+                    'walker'            => new wp_bootstrap_navwalker())
+                );
+            ?>
         </div>
     </div>
 

@@ -10,6 +10,9 @@ License URI: http://opensource.org/licenses/MIT
 
 Based on fourtwenty -- https://github.com/infyhr/fourtwenty
 Blaze it quick and fast with this Bootstrap powered startup theme. Turn it into something awesome.
+The elements you see here are used to make the theme somewhat appealing by default.
+You should, of course, replace all of this with your own theme style.
+
 This project, like Bootstrap, is licensed under MIT. Bootstrap license below:
 
 The MIT License (MIT)
@@ -36,10 +39,51 @@ THE SOFTWARE.
 
 */
 
-html { position: relative;min-height: 100%; }
-body { margin-bottom: 60px; }
-#footer { position: absolute;bottom: 0;width: 100%;height: 60px;background-color: #f5f5f5; }
-body > .container { padding: 60px 15px 0; }
-.container .text-muted { margin: 20px 0; }
-#footer > .container { padding-right: 15px;padding-left: 15px; }
-code { font-size: 80%; }
+/* === This is to ensure Bootstrap's " Sticky footer with fixed navbar" example works properly. === */
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin-bottom: 60px;
+    font-family: verdana, sans-serif, serif;
+}
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #f5f5f5;
+}
+body > .container {
+    padding: 60px 15px 0;
+}
+.container .text-muted {
+    margin: 20px 0;
+}
+#footer > .container {
+    padding-right: 15px;padding-left: 15px;
+}
+code {
+    font-size: 80%;
+}
+/* Make the menu drop down by hovering rather than clicking. */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* === single.php === */
+.entry-meta {
+    font-size: .9em;
+    text-align: right;
+}
+.entry-content {
+    font-size: 1.2em;
+    padding: 10px;
+}
+.entry-cats, .entry-tags {
+    font-size: .9em;
+}
+.entry-cats li {
+    list-style: square;
+}

@@ -7,6 +7,11 @@
  * @package fourtwenty
  */
 
+/**
+ * Require wp_bootstrap_navwalker.php. This is used to display the navigation
+ * @link https://github.com/twittem/wp-bootstrap-navwalker
+ */
+require_once get_template_directory() . '/wp_bootstrap_navwalker.php';
 
 /**
  * This is the "core hook".
@@ -31,6 +36,9 @@ add_action('after_setup_theme', function() {
     register_nav_menus(array(
         'navigation' => __('Primary navigation menu', 'fourtwenty'),
     ));
+
+    // Debug
+    add_filter('show_admin_bar', '__return_false');
 });
 
 /**
@@ -82,6 +90,20 @@ function fourtwenty_post_navigation() {
             <?php endif; ?>
         </div>
     <?php
+}
+
+/**
+ * You can use this function to get the time, date and the author.
+ * It saves you from copying/pasting the same code again and again.
+ * It also links directly to the post itself when clicked on (provides a simple permalink, hence the href).
+ */
+function fourtwenty_post_timestamp() {
+    $date   = get_the_modified_date('j.n.Y'); # modified means to update the time when the post itself was updated.
+    $time   = get_the_modified_date('H:i');
+
+    $author = esc_url(get_author_posts_url(get_the_author_meta('ID')));
+
+    echo '<span class="posted-on">' . sprintf(__('Posted on %s at %s by <a href="' . $author . '">%s</a>'), $date, $time, get_the_author()) . '</span>';
 }
 
 ?>
