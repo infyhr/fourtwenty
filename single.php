@@ -1,6 +1,7 @@
 <?php
 /**
  * single.php displays all single posts which are directly accessed.
+ *
  * @package fourtwenty
  * @link http://codex.wordpress.org/Theme_Development#Single_Post_.28single.php.29
  */

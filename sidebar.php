@@ -8,7 +8,7 @@
  */
 ?>
 
-<div id="secondary" class="col-md-4 col-md-offset-4" role="complementary">
+<div id="sidebar" class="col-xs-6 col-lg-4" role="complementary">
     <?php if(!dynamic_sidebar('simple-generic-sidebar')): ?>
 
         <div class="panel panel-default">
@@ -16,7 +16,9 @@
                 <h3 class="panel-title"><?php _e('Archives', 'fourtwenty'); ?></h3>
             </div>
             <div class="panel-body">
-                <?php wp_get_archives(['type' => 'monthly']); ?>
+                <ul>
+                    <?php wp_get_archives(['type' => 'monthly']); ?>
+                </ul>
             </div>
         </div>
 

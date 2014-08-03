@@ -87,3 +87,8 @@ code {
 .entry-cats li {
     list-style: square;
 }
+
+/* === sidebar.php === */
+#sidebar {
+    margin-top: 45px;
+}
