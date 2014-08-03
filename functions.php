@@ -28,7 +28,7 @@ add_action('after_setup_theme', function() {
     // Add theme support for some post formats. You don't need these if you don't use them, of course.
     add_theme_support('post-formats', ['quote', 'image', 'video', 'link', 'aside']);
     // Add support for post thumbnails. This will be commented out if you don't need it.
-    add_theme_support('post-thumbnails');
+    add_theme_support('post-thumbnails'); # testing...
     // Add support for "Semantic Markup". This will make the search utilize HTML5 elements.
     add_theme_support('html5', ['search-form']);
 
