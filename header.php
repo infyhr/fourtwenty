@@ -16,7 +16,7 @@
         <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/dist/favicon.ico">
         <meta name="description" content="<?php bloginfo('description'); ?>">
 
-        <title><?php wp_title('&bull;', true, 'right'); ?></title>
+        <title><?php wp_title(' &bull; '); // view functions.php for this one. ?></title>
 
         <!-- Bootstrap core CSS. -->
         <link href="<?php echo get_template_directory_uri(); ?>/dist/css/bootstrap.min.css" rel="stylesheet">

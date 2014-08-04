@@ -106,4 +106,36 @@ function fourtwenty_post_timestamp() {
     echo '<span class="posted-on">' . sprintf(__('Posted on %s at %s by <a href="' . $author . '">%s</a>'), $date, $time, get_the_author()) . '</span>';
 }
 
+
+/**
+ * Make the title a little bit prettier.
+ * <Sitename> &bull; <action or description>
+ */
+add_filter('wp_title', function($title, $separator) { // $title = passed by reference.
+    if(is_feed()) return $title;
+
+    // Get page & pagination.
+    global $page, $pagination;
+    #$title = '';
+
+    // Get the site title and the description.
+    $site_title           = get_bloginfo('name', 'display');
+    if(!$site_description = get_bloginfo('description', 'display')) { $description = ''; }
+
+    // Are we at the frontpage? If so then use the site title and the description rather than the page indicator.
+    if(is_home() || is_front_page()) {
+        return $_title = $site_title . $separator . $site_description;
+    }
+
+    // Title of the website + page title.
+    $_title = $site_title . $title;
+
+    // if(($page >= 2 || $pagination >= 2) && !is_404()) {
+    if($page >= 2 || $pagination >= 2) {
+        $_title = $_title . $separator . __('Page: ' . $page, 'fourtwenty');
+    }
+
+    return $_title;
+}, 10, 2);
+
 ?>
