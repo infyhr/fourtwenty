@@ -34,7 +34,5 @@ get_header(); ?>
 </div>
 
 <?php
-// If sidebar.php exists, load it
-if(file_exists(get_template_directory() . '/sidebar.php')) { get_sidebar(); }
 get_footer();
 ?>
