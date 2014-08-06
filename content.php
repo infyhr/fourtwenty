@@ -34,4 +34,5 @@
             echo '<div class="entry-cats">' . __('Categories: ' . $cats, 'fourtwenty') . '</div>';
         ?>
     <hr>
+    </article>
 </div>
