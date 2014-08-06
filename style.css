@@ -67,9 +67,14 @@ body > .container {
 code {
     font-size: 80%;
 }
+
+/* === specific "fixes" === */
 /* Make the menu drop down by hovering rather than clicking. */
 .dropdown:hover .dropdown-menu {
     display: block;
+}
+li {
+    list-style-type: square;
 }
 
 /* === single.php === */

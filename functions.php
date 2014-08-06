@@ -28,6 +28,7 @@ add_action('after_setup_theme', function() {
     // Add theme support for Automatic Feed Links?
     add_theme_support('automatic_feed_links');
     // Add theme support for some post formats. You don't need these if you don't use them, of course.
+    // Keep in mind you'll have to code your own content-*.php pages if you want to use these.
     add_theme_support('post-formats', ['quote', 'image', 'video', 'link', 'aside']);
     // Add support for post thumbnails. This will be commented out if you don't need it.
     add_theme_support('post-thumbnails'); # testing...
