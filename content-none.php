@@ -1,6 +1,7 @@
 <?php
 /**
  * This file gets shown where no posts have been found or where there are no posts available... yet.
+ *
  * @package fourtwenty
  * @link http://codex.wordpress.org/Template_Hierarchy
  */
