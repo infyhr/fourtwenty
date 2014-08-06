@@ -9,6 +9,7 @@
 
 /**
  * Require wp_bootstrap_navwalker.php. This is used to display the navigation
+ *
  * @link https://github.com/twittem/wp-bootstrap-navwalker
  */
 require_once get_template_directory() . '/wp_bootstrap_navwalker.php';
@@ -16,6 +17,7 @@ require_once get_template_directory() . '/wp_bootstrap_navwalker.php';
 /**
  * This is the "core hook".
  * It basically sets the basic theme options. You can extend this furthermore by reading the Codex.
+ *
  * @link http://codex.wordpress.org/Plugin_API/Action_Reference/after_setup_theme
  * @see Make sure you expand this by adding your own options. You can always generate them using generatewp.com.
  */
@@ -43,6 +45,7 @@ add_action('after_setup_theme', function() {
 
 /**
  * Register a simple sidebar. If your theme won't use widgets then you probably don't need this.
+ *
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
 add_action('widgets_init', function() {
@@ -60,6 +63,7 @@ add_action('widgets_init', function() {
 /**
  * This loads javascript files. You should probably use this to load any other stylesheets (.css)
  * but you can also hardcode them in the head of the header.php which is what's done with 'style.css'
+ *
  * @link http://codex.wordpress.org/Plugin_API/Action_Reference/wp_enqueue_scripts
  */
 add_action('wp_enqueue_scripts', function() {
