@@ -76,7 +76,9 @@ code {
 li {
     list-style-type: square;
 }
-
+.dropdown-menu li {
+    list-style-type: none;
+}
 /* === single.php === */
 .entry-meta {
     font-size: .9em;

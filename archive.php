@@ -12,7 +12,7 @@ get_header(); ?>
 <div class="container">
     <?php if(have_posts()) { the_post(); ?>
     <div class="page-header">
-        <?php the_title('<h1>', '</h1>'); // Page title ?>
+        <?php the_title('<h4><a href="'. esc_url(get_permalink()) . '">', '</a></h4>'); // Posts title ?>
     </div>
     <div class="row">
         <div class="col-md-4">
