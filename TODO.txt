@@ -6,6 +6,6 @@ FUTURE. Construct a shell setup & installation
 --4. comments.php -> use disqus.--
 --5. 404.php--
 --6. <s>content-search.php</s> + search.php yeye--
-7. screenshot.png
+--7. screenshot.png--
 FUTURE. Add multilanguage support out of the box (cookie).
 FUTURE. layouts/ directory with BS examples -> shell ^
