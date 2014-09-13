@@ -23,7 +23,8 @@ require_once get_template_directory() . '/wp_bootstrap_navwalker.php';
  */
 add_action('after_setup_theme', function() {
     // Set up languages. You should always translate everything and keep it within .po files.
-    load_theme_textdomain('underscores', get_template_directory() . '/languages');
+    fourtwenty_load_language();
+    load_theme_textdomain('fourtwenty', get_template_directory() . '/languages');
 
     // Add theme support for Automatic Feed Links?
     add_theme_support('automatic_feed_links');
@@ -142,5 +143,49 @@ add_filter('wp_title', function($title, $separator) { // $title = passed by refe
 
     return $_title;
 }, 10, 2);
+
+
+/**
+ * Dynamically loads the visitor's language, if possible.
+ */
+function fourtwenty_load_language() {
+    // Load all available language files in an array.
+    $languages = glob(get_template_directory() . '/languages/*.mo');
+    if(empty($languages) || !is_array($languages)) return;
+
+    // Loop through every language and get its name.
+    foreach($languages as $lang) {
+        $lang = explode('/', $lang);
+        $lang = end($lang);
+        $lang = substr($lang, 0, -3);
+        // Check whether the cookie is set and responds to matched languages.
+        if(isset($_COOKIE['420_lang']) && esc_attr($_COOKIE['420_lang']) == $lang) {
+            $l = esc_attr($lang); // A bit of optimization so it doesn't set it on each language file.
+        }else {
+            $l = get_locale();
+        }
+    }
+
+    // Now set the locale after checking against all languages.
+    // add_filter('locale', function($locale) { var_dump($l);die; })
+    add_filter('locale', function($locale) use ($l) {
+        $locale = $l;
+        return $locale;
+    });
+    #load_theme_textdomain('fourtwenty', get_template_directory() . '/languages');
+}
+
+/**
+ * Dynamically sets the visitor's language.
+ *
+ * @var $lang_name string Language name (IETF, e.g. en_US for US English or en_GB for UK English)
+ * @return boolean
+ */
+function fourtwenty_set_language($lang_name) {
+    if(setcookie('420_lang', $lang_name, time() + (10 * 365 * 24 * 60 * 60))) {
+        return true;
+    }
+    return false;
+}
 
 ?>
