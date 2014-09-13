@@ -70,9 +70,9 @@ add_action('widgets_init', function() {
 add_action('wp_enqueue_scripts', function() {
     // If a file jquery.min.js exists in dist/js/ it will be loaded instead the one from Google CDN.
     if(file_exists(get_template_directory() . '/dist/js/jquery.min.js')) {
-        wp_enqueue_script('jquery-min', get_template_directory_uri() . '/dist/js/jquery.min.js', [], '2.1.1', true);
+        wp_enqueue_script('jquery-min', get_template_directory_uri() . '/dist/js/jquery.min.js', [], '2.1.1', false);
     }else {
-        wp_enqueue_script('jquery-min', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', [], '1.11.0', true);
+        wp_enqueue_script('jquery-min', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', [], '1.11.0', false);
     }
 
     // Now load bootstrap.min.js

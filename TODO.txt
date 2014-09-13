@@ -4,8 +4,8 @@ FUTURE. Construct a shell setup & installation
 --2. Common pages (single.php, content.php, content-*.php, page.php, sidebar.php)--
 --3. archive.php--
 --4. comments.php -> use disqus.--
-5. 404.php
-6. <s>content-search.php</s> + search.php yeye
+--5. 404.php--
+--6. <s>content-search.php</s> + search.php yeye--
 7. screenshot.png
 FUTURE. Add multilanguage support out of the box (cookie).
 FUTURE. layouts/ directory with BS examples -> shell ^

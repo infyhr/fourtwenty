@@ -3,6 +3,7 @@
  * Just an example sidebar that gets loaded on the default page template.
  * By default it includes some standard widgets such as the archive and the search form.
  * This is so if there are no widgets set up it shows something and doesn't break completely.
+ *
  * @package fourtwenty
  * @link http://codex.wordpress.org/Function_Reference/get_sidebar
  */

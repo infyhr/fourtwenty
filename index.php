@@ -7,8 +7,10 @@
  * index.php is a file that gets last loaded if absolutely everything else fails.
  * In theory, Wordpress should never hit index.php but rather some other one.
  * Please read the following document for more info:
+ *
  * @link http://codex.wordpress.org/Template_Hierarchy
  * @see http://codex.wordpress.org/Template_Hierarchy#Examples for easy understanding.
+ * @package fourtwenty
  */
 
 get_header(); ?>
