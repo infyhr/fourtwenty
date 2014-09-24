@@ -1,0 +1,117 @@
+#!/usr/bin/env php
+<?php
+if(PHP_SAPI !== 'cli') {
+    die('This application can only be run from the command line interface.');
+}
+if(!defined('STDIN')) define('STDIN', 'php://STDIN');
+
+class fourtwenty {
+
+    public $argv, $argc;
+
+    /**
+     * Class constructor. Registers $argv and $argc and accepts initial input.
+     * @param string $argv Command line arguments
+     * @param int $argc Number of command line arguments
+     * @return void
+     */
+    public function __construct($argv, $argc) {
+        $this->argv = $argv;
+        $this->argc = $argc;
+
+        if(!isset($this->argv[1])) { $this->e('Usage: php 420 [command]', FALSE);return; }
+
+        if(method_exists($this, $argv[1]) && is_callable(array($this, $argv[1]))) {
+            $this->$argv[1]();
+        }else {
+            $this->help();
+        }
+    }
+
+    /**
+     * Shows help.
+     * @return void
+     */
+    public function help() {
+        // List all the available and callable functions which are public.
+        $reflector = new ReflectionClass($this);
+        $methods   = $reflector->getMethods(ReflectionMethod::IS_PUBLIC);
+
+        $available = array();
+
+        foreach($methods as $method) {
+            if((string)$method->name == '__construct') { continue; }
+            $available[] = (string)$method->name;
+        }
+
+        $available = implode(', ', $available);
+        $this->e('Available methods: ' . $available);
+    }
+
+    /**
+     * Sets up a new user page.
+     * @return void
+     */
+    public function newpage() {
+        // get pagename, put some boilerplate, save.
+    }
+
+    /**
+     * Sets the theme up. This is done by editing style.css
+     * @return void
+     */
+    public function setup() {
+        // Interactively ask the user for some information.
+        $replacements                   = array();
+        $replacements['name']           = $this->ask('Name of the new theme: ');
+        $replacements['theme_uri']      = $this->ask('Theme URI: ');
+        $replacements['author_name']    = $this->ask('Author name: ');
+        $replacements['author_uri']     = $this->ask('Author URI: ');
+        $replacements['description']    = $this->ask('Description: ');
+
+        // Try to open our style.css.
+        $fp = fopen('./style.css', 'rb');
+        if(!$fp) { $this->e('Could not open style.css. Please ensure it\'s readable'); }
+        $data = fread($fp, filesize('./style.css')); // Read it into $data
+
+        // Run string replacements.
+        $data = str_replace(['420_name', '420_uri', '420_author', '420_authoruri', '420_description'], $replacements, $data);
+
+        // Finally update the file.
+        if(!file_put_contents('./style.css', $data)) {
+            $this->e('An error has occured while writing to style.css. Please ensure it\'s writable!');return;
+        }
+        $this->e('Updated style.css successfully!');
+    }
+
+    /**
+     * Gets the user input and returns it.
+     * @param string $question String displayed to the user. What to expect from the user themselves.
+     * @return string
+     */
+    private function ask($question) {
+        $this->e($question);
+        $handle = fopen(STDIN, 'r');
+        return trim(fgets($handle));
+    }
+
+    /**
+     * Echoes out text with colors, in a pretty way.
+     * @param string $msg What to echo.
+     * @param bool $good Whether the message is positive or negative. Changes colors accordingly.
+     * @return void
+     */
+    private function e($msg, $good = TRUE) {
+        if($good) {
+            $color = "\033[94m ";
+        }else {
+            $color = "\033[91m";
+        }
+
+        echo $color . $msg . "\033[0m" . "\n"; # \n because this is expected to run on unix.
+    }
+}
+
+new fourtwenty($argv, $argc);
+
+?>
