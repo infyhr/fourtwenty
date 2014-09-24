@@ -18,12 +18,12 @@
         <?php the_excerpt(); // Post body. ?>
     </div>
     <?php
-    // Get categories and tags and echo them out.
-    $tags = (get_the_tag_list()) ? get_the_tag_list() : __('N/A', 'fourtwenty');
-    $cats = get_the_category_list();
+        // Get categories and tags and echo them out.
+        $tags = (get_the_tag_list()) ? get_the_tag_list() : __('N/A', 'fourtwenty');
+        $cats = get_the_category_list();
 
-    echo '<div class="entry-tags">' . __('Tags: ' . $tags, 'fourtwenty') . '</div>';
-    echo '<div class="entry-cats">' . __('Categories: ' . $cats, 'fourtwenty') . '</div>';
-    echo edit_post_link(__('Edit this post', 'fourtwenty')); // Edit post link which shows if you have the needed perms.
+        echo '<div class="entry-tags">' . __('Tags: ' . $tags, 'fourtwenty') . '</div>';
+        echo '<div class="entry-cats">' . __('Categories: ' . $cats, 'fourtwenty') . '</div>';
+        echo edit_post_link(__('Edit this post', 'fourtwenty')); // Edit post link which shows if you have the needed perms.
     ?>
 </article>
