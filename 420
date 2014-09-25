@@ -89,13 +89,13 @@ HTML;
     public function update() {
         // Grab the latest manifest.txt
         $latest_branch = file_get_contents('https://raw.githubusercontent.com/infyhr/fourtwenty/master/manifest.txt');
-        if(!$latest) { $this->e('Unabled to check for updates. Check whether allow_url_fopen is enabled.');return; }
+        if(!$latest_branch) { $this->e('Unabled to check for updates. Check whether allow_url_fopen is enabled.');return; }
 
         // Compare current and latest.
-        $this->e('Current: ' . $this->VERSION);
+        $this->e('Current: ' . self::VERSION);
         $this->e('Latest: ' . $latest_branch);
 
-        if($latest_branch > $this->VERSION) { $this->e('Update available!'); }
+        if($latest_branch > self::VERSION) { $this->e('Update available!'); }
         return;
     }
 
