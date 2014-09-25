@@ -9,7 +9,7 @@ In order words, it lets you create a Bootstrap based template live within Wordpr
 * Multilingual support (by using .po and .mo files)
 * Custom template functions to minimize redundancy (like navigation and comments)
 * Some `style.css` additions to make it more appealing
-* ~~CLI `.phar` application for easier set-up, extensibility and maintenance~~ **TBA**
+* Useless CLI application
 
 ## Requirements
 - PHP 5.4 or above
@@ -20,4 +20,4 @@ In order words, it lets you create a Bootstrap based template live within Wordpr
 MIT
 
 ## Documentation
-Will be added... eventually, I hope.
+[Wiki](https://github.com/infyhr/fourtwenty/wiki)
