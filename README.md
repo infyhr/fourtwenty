@@ -13,8 +13,8 @@ In order words, it lets you create a Bootstrap based template live within Wordpr
 
 ## Requirements
 - PHP 5.4 or above
-- `glob()` support for multiple languages (workaround TBA)
-- SSH access or PHP CLI support for the `.phar` application.
+- `glob()` support for multiple languages (workaround TBA → array)
+- SSH access or PHP CLI support for the CLI application.
 
 ## License
 MIT
